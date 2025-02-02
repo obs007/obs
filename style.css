@@ -1,0 +1,78 @@
+:root {
+    --primary-blue: #002A5C;
+    --accent-gold: #C5A942;
+    --dark-bg: #0A192F;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+}
+
+.navbar {
+    background: rgba(10, 25, 47, 0.95);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.hero {
+    background: linear-gradient(rgba(0,42,92,0.9), rgba(0,42,92,0.7)),
+                url('images/lab-bg.jpg');
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.research-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.research-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Molecular animation */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.molecule {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.molecule::before,
+.molecule::after {
+    content: '';
+    position: absolute;
+    border: 2px solid var(--accent-gold);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+}
